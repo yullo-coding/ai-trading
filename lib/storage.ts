@@ -1,3 +1,5 @@
+import { supabase } from './supabase'
+
 export type OptionKey = 'A' | 'B' | 'C' | 'D'
 
 export interface ClickEvent {
@@ -37,6 +39,12 @@ export function recordClick(event: ClickEvent) {
   const existing: ClickEvent[] = JSON.parse(ls.getItem(KEYS.clicks) || '[]')
   existing.push(event)
   ls.setItem(KEYS.clicks, JSON.stringify(existing))
+
+  supabase.from('clicks').insert({
+    option: event.option,
+    timestamp: event.timestamp,
+    hover_duration: event.hoverDuration ?? null,
+  }).then(({ error }) => { if (error) console.error('[supabase] clicks:', error) })
 }
 
 export function recordSignup(signup: NotificationSignup) {
@@ -45,6 +53,13 @@ export function recordSignup(signup: NotificationSignup) {
   const existing: NotificationSignup[] = JSON.parse(ls.getItem(KEYS.signups) || '[]')
   existing.push(signup)
   ls.setItem(KEYS.signups, JSON.stringify(existing))
+
+  supabase.from('signups').insert({
+    phone: signup.phone,
+    selected_options: signup.selectedOptions,
+    option_labels: signup.optionLabels,
+    timestamp: signup.timestamp,
+  }).then(({ error }) => { if (error) console.error('[supabase] signups:', error) })
 }
 
 export function recordOpinion(opinion: FreeOpinion) {
@@ -53,6 +68,12 @@ export function recordOpinion(opinion: FreeOpinion) {
   const existing: FreeOpinion[] = JSON.parse(ls.getItem(KEYS.opinions) || '[]')
   existing.push(opinion)
   ls.setItem(KEYS.opinions, JSON.stringify(existing))
+
+  supabase.from('opinions').insert({
+    text: opinion.text,
+    selected_options: opinion.selectedOptions,
+    timestamp: opinion.timestamp,
+  }).then(({ error }) => { if (error) console.error('[supabase] opinions:', error) })
 }
 
 export function saveSelectedOptions(options: OptionKey[]) {
