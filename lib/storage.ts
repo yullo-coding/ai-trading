@@ -1,4 +1,4 @@
-import { supabase } from './supabase'
+import { getSupabase } from './supabase'
 
 export type OptionKey = 'A' | 'B' | 'C' | 'D'
 
@@ -40,11 +40,11 @@ export function recordClick(event: ClickEvent) {
   existing.push(event)
   ls.setItem(KEYS.clicks, JSON.stringify(existing))
 
-  supabase.from('clicks').insert({
+  getSupabase()?.from('clicks').insert({
     option: event.option,
     timestamp: event.timestamp,
     hover_duration: event.hoverDuration ?? null,
-  }).then(({ error }) => { if (error) console.error('[supabase] clicks:', error) })
+  }).then(({ error }: { error: unknown }) => { if (error) console.error('[supabase] clicks:', error) })
 }
 
 export function recordSignup(signup: NotificationSignup) {
@@ -54,12 +54,12 @@ export function recordSignup(signup: NotificationSignup) {
   existing.push(signup)
   ls.setItem(KEYS.signups, JSON.stringify(existing))
 
-  supabase.from('signups').insert({
+  getSupabase()?.from('signups').insert({
     phone: signup.phone,
     selected_options: signup.selectedOptions,
     option_labels: signup.optionLabels,
     timestamp: signup.timestamp,
-  }).then(({ error }) => { if (error) console.error('[supabase] signups:', error) })
+  }).then(({ error }: { error: unknown }) => { if (error) console.error('[supabase] signups:', error) })
 }
 
 export function recordOpinion(opinion: FreeOpinion) {
@@ -69,11 +69,11 @@ export function recordOpinion(opinion: FreeOpinion) {
   existing.push(opinion)
   ls.setItem(KEYS.opinions, JSON.stringify(existing))
 
-  supabase.from('opinions').insert({
+  getSupabase()?.from('opinions').insert({
     text: opinion.text,
     selected_options: opinion.selectedOptions,
     timestamp: opinion.timestamp,
-  }).then(({ error }) => { if (error) console.error('[supabase] opinions:', error) })
+  }).then(({ error }: { error: unknown }) => { if (error) console.error('[supabase] opinions:', error) })
 }
 
 export function saveSelectedOptions(options: OptionKey[]) {
