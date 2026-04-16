@@ -15,8 +15,8 @@ export default function Footer() {
         </div>
 
         <p className="text-xs text-[#444] max-w-sm mx-auto leading-relaxed mb-6">
-          이 페이지는 제품 출시 전 사용자 니즈 검증을 위한 가설 실험입니다.
-          수집된 데이터는 서비스 기획에만 활용됩니다.
+          이 페이지는 AI 트레이딩 서비스 베타 테스터 모집을 위한 페이지입니다.
+          수집된 연락처는 베타 출시 알림 발송 목적으로만 활용됩니다.
         </p>
 
         {/* Divider */}
@@ -27,7 +27,7 @@ export default function Footer() {
         </div>
 
         <p className="text-xs text-[#333]">
-          © 2025 AI Trading. Built with Next.js 14 · Framer Motion · Tailwind CSS
+          © 2025 AI Trading
         </p>
       </div>
     </footer>

@@ -157,7 +157,7 @@ export default function NotificationForm({ selectedOptions }: NotificationFormPr
                         <motion.div
                           initial={{ opacity: 0, scale: 0.8 }}
                           animate={{ opacity: 1, scale: 1 }}
-                          className="absolute right-3 top-1/2 -translate-y-1/2 text-accent"
+                          className="absolute right-3 inset-y-0 flex items-center text-accent leading-none"
                         >
                           ✓
                         </motion.div>

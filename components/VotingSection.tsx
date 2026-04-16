@@ -31,9 +31,9 @@ export const OPTIONS: Record<OptionKey, {
   C: {
     label: '카피 트레이딩',
     tag: 'OPTION_C',
-    icon: '📑',
+    icon: '🏆',
     desc: '검증된 고수의 전략을 그대로 복사하는 카피 트레이딩',
-    detail: '고수익 전략(또는 특정 퍼르소나 AI)의 매매 히스토리를 랭킹 시스템으로 공개합니다. 믿을 수 있는 성과 기록으로 판단하세요.',
+    detail: '수익률로 검증된 트레이더(또는 AI 전략)의 매매를 그대로 따라갑니다. 내가 분석 못해도, 성과 기록이 말해주는 사람을 고르면 됩니다.',
     color: 'from-purple-500/10 to-transparent',
   },
   D: {
@@ -161,7 +161,6 @@ export default function VotingSection({ onOptionsChange }: VotingSectionProps) {
   const [selected, setSelected] = useState<OptionKey[]>([])
   const titleRef = useRef(null)
   const titleInView = useInView(titleRef, { once: true, margin: '-80px' })
-  const hasScrolled = useRef(false)
 
   useEffect(() => {
     const saved = loadSelectedOptions()
@@ -177,13 +176,6 @@ export default function VotingSection({ onOptionsChange }: VotingSectionProps) {
       const next = isSelected ? prev.filter(k => k !== key) : [...prev, key]
       saveSelectedOptions(next)
       onOptionsChange(next)
-
-      if (!hasScrolled.current && next.length === 1) {
-        hasScrolled.current = true
-        setTimeout(() => {
-          document.getElementById('notification')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-        }, 700)
-      }
 
       return next
     })
@@ -242,7 +234,7 @@ export default function VotingSection({ onOptionsChange }: VotingSectionProps) {
               exit={{ opacity: 0 }}
               className="mt-8 p-4 rounded-xl border border-[#1E1E1E] bg-[#0D0D0D]"
             >
-              <p className="tag text-[#555] mb-3">내 우선순위</p>
+              <p className="text-sm font-bold text-[#888] mb-3">내 우선순위</p>
               <div className="flex flex-col gap-2">
                 {selected.map((key, i) => (
                   <motion.div

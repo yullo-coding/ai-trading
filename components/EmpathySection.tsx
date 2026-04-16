@@ -38,7 +38,7 @@ function EmpathyCard({ card, index }: { card: typeof CARDS[0]; index: number }) 
       initial={{ opacity: 0, y: 40 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, delay: index * 0.12 }}
-      className="card-hover relative group rounded-xl border border-[#1E1E1E] bg-[#0D0D0D] p-5 sm:p-6 overflow-hidden"
+      className="card-hover relative group rounded-xl border border-[#1E1E1E] bg-[#0D0D0D] p-5 sm:p-6 overflow-hidden flex flex-col"
     >
       {/* Card glow on hover */}
       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-xl"
@@ -64,8 +64,7 @@ function EmpathyCard({ card, index }: { card: typeof CARDS[0]; index: number }) 
       </p>
 
       {/* Bottom */}
-      <div className="flex items-center justify-between pt-3 border-t border-[#1A1A1A]">
-        <span className="tag text-[#555]">{card.code}</span>
+      <div className="flex items-center justify-end pt-3 border-t border-[#1A1A1A] mt-auto">
         <span className="tag text-accent bg-accent/10 px-2 py-0.5 rounded">
           {card.highlight}
         </span>
@@ -95,7 +94,7 @@ export default function EmpathySection() {
             <div className="h-px w-8 bg-accent/40" />
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-black leading-tight">
-            알아도 못하는 투자
+            알고도 못 하는 투자, 믿고 싶어도 못 믿는 AI
           </h2>
           <p className="mt-3 text-[#666] text-sm sm:text-base max-w-md mx-auto">
             정보 부족이 문제가 아니었습니다.<br />
