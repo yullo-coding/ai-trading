@@ -2,7 +2,7 @@
 
 import { motion, useInView, AnimatePresence } from 'framer-motion'
 import { useRef, useState } from 'react'
-import { type OptionKey, recordSignup } from '@/lib/storage'
+import { type OptionKey, recordSignup, saveSignupPhone } from '@/lib/storage'
 import { OPTIONS } from './VotingSection'
 
 interface NotificationFormProps {
@@ -36,12 +36,14 @@ export default function NotificationForm({ selectedOptions }: NotificationFormPr
     setFormState('submitting')
     await new Promise(resolve => setTimeout(resolve, 800))
 
+    const digits = phone.replace(/\D/g, '')
     recordSignup({
-      phone: phone.replace(/\D/g, ''),
+      phone: digits,
       selectedOptions,
       optionLabels: selectedOptions.map(k => OPTIONS[k].label),
       timestamp: Date.now(),
     })
+    saveSignupPhone(digits)
 
     setFormState('success')
   }

@@ -19,6 +19,7 @@ export interface FreeOpinion {
   text: string
   selectedOptions: OptionKey[]
   timestamp: number
+  phone?: string
 }
 
 const KEYS = {
@@ -26,6 +27,7 @@ const KEYS = {
   signups: 'ai_trading_signups',
   opinions: 'ai_trading_opinions',
   selectedOptions: 'ai_trading_selected_options',
+  signupPhone: 'ai_trading_signup_phone',
 }
 
 function safeLocalStorage() {
@@ -73,7 +75,20 @@ export function recordOpinion(opinion: FreeOpinion) {
     text: opinion.text,
     selected_options: opinion.selectedOptions,
     timestamp: opinion.timestamp,
+    phone: opinion.phone ?? null,
   }).then(({ error }: { error: unknown }) => { if (error) console.error('[supabase] opinions:', error) })
+}
+
+export function saveSignupPhone(phone: string) {
+  const ls = safeLocalStorage()
+  if (!ls) return
+  ls.setItem(KEYS.signupPhone, phone)
+}
+
+export function loadSignupPhone(): string | null {
+  const ls = safeLocalStorage()
+  if (!ls) return null
+  return ls.getItem(KEYS.signupPhone)
 }
 
 export function saveSelectedOptions(options: OptionKey[]) {

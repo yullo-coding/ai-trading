@@ -2,7 +2,7 @@
 
 import { motion, useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
-import { type OptionKey, recordOpinion } from '@/lib/storage'
+import { type OptionKey, recordOpinion, loadSignupPhone } from '@/lib/storage'
 
 interface FreeOpinionSectionProps {
   selectedOptions: OptionKey[]
@@ -23,6 +23,7 @@ export default function FreeOpinionSection({ selectedOptions }: FreeOpinionSecti
       text: text.trim(),
       selectedOptions,
       timestamp: Date.now(),
+      phone: loadSignupPhone() ?? undefined,
     })
     setSubmitted(true)
   }
