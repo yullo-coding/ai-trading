@@ -1,0 +1,18 @@
+# Query: 져봐야 
+# Including: ./AI Trading
+# ContextLines: 1
+
+4개 결과 - 2 파일
+
+AI Trading/.next/server/app/page.js:
+  238  "use strict";
+  239: ⟪ 673 characters skipped ⟫MPORTED_MODULE_0__);\n/* harmony import */ var _globals_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./globals.css */ \"(rsc)/./app/globals.css\");\n\n\nconst metadata = {\n    title: \"져봐야 믿는다 | AI 투자 코칭\",\n    description: \"뇌동매매로 날린 수익, AI는 알고 있었습니다. 당신에게 가장 필요한 AI 코칭을 선택하세요.\",\n    openGraph: {\n        title: \"져봐야 믿는다 | AI 투자 코칭\",\n        description: \"뇌동매매로 날린 수익, AI는 알고 있었습니다.\",\n        type: \"website\"\n    }\n};\nfunction RootLayout({ children }) {\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"html\", {\n        lang: \"ko\",\n        children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"body\", {\n            children: children\n        }, void 0, false, {\n            fileName: \"/Users/yuraseo/Vibe Coding/AI Trading/app/layout.tsx\",\n            lineNumber: 21,\n            columnNumber: 7\n        }, this)\n    }, void 0, false, {\n        fileName: \"/Users/yuraseo/Vibe Coding/AI Trading/app/layout.tsx\",\n        lineNumber: 20,\n        columnNumber: 5\n    }, this);\n}\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHJzYykvLi9hcHAvbGF5b3V0LnRzeCIsIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7QUFDc0I7QUFFZixNQUFNQSxXQUFxQjtJQUNoQ0MsT0FBTztJQUNQQy
+  240  
+
+AI Trading/app/layout.tsx:
+  4  export const metadata: Metadata = {
+  5:   title: 'AI 투자 코칭',
+  6    description: '뇌동매매로 날린 수익, AI는 알고 있었습니다. 당신에게 가장 필요한 AI 코칭을 선택하세요.',
+  7    openGraph: {
+  8:     title: 'AI 투자 코칭',
+  9      description: '뇌동매매로 날린 수익, AI는 알고 있었습니다.',
