@@ -60,12 +60,12 @@ function EmpathyCard({ card, index }: { card: typeof CARDS[0]; index: number }) 
 
       {/* Quote */}
       <p className="text-sm text-[#777] leading-relaxed mb-4 italic">
-        {card.desc}
+        &quot;{card.desc}&quot;
       </p>
 
       {/* Bottom */}
       <div className="flex items-center justify-between pt-3 border-t border-[#1A1A1A]">
-        <span className="tag text-[#555]">{card.tag}</span>
+        <span className="tag text-[#555]">{card.code}</span>
         <span className="tag text-accent bg-accent/10 px-2 py-0.5 rounded">
           {card.highlight}
         </span>

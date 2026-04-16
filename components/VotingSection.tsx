@@ -132,7 +132,7 @@ function VoteCard({
           </div>
 
           <p className={`text-sm sm:text-base font-medium mb-3 ${isSelected ? 'text-[#E8E8E8]' : 'text-[#CCC]'}`}>
-            "{option.desc}"
+            &quot;{option.desc}&quot;
           </p>
 
           <p className="text-xs sm:text-sm text-[#666] leading-relaxed">
